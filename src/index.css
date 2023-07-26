@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navIcon {
+    @apply hover:bg-green-300 p-2 px-4 active:text-black;
+  }
+}
