@@ -16,7 +16,7 @@ const NavBar = () => {
         </Link>
         <div className="border-l-2 border-white h-full"></div>
         <Link to="/cart" className="navIcon">
-          <img src={cart} className=" h-5 w-5 fill-white" alt="cart logo" />
+          <img src={cart} className=" h-5 w-5" alt="cart logo" />
         </Link>
         <div className="border-l-2 border-white h-full"></div>
       </div>

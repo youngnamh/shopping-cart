@@ -4,6 +4,6 @@
 
 @layer components {
   .navIcon {
-    @apply hover:bg-gray-500 p-2 px-4 active:text-black;
+    @apply p-2 px-4 active:scale-100 hover:scale-110 flex justify-center items-center;
   }
 }
