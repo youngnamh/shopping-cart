@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import NavBar from "./NavBar";
 import Store from "./Store";
@@ -9,32 +9,66 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <div>
-          <NavBar /> <Home />
-        </div>
-      ),
-      errorElement: <ErrorPage />,
+      element: <NavbarWrapper />,
+      children: [
+        {
+          path: "/", // yes, again
+          element: <Home />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "store",
+          element: <Store />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
+        },
+      ],
     },
+  ]);
+
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
+};
+
+const NavbarWrapper = () => {
+  return (
+    <div>
+      <NavBar />
+      <Outlet />
+    </div>
+  );
+};
+
+export default Router;
+
+/*
+const Router = () => {
+  const router = createBrowserRouter([
     {
-      path: "store",
-      element: (
-        <div>
-          <NavBar /> <Store />
-        </div>
-      ),
-    },
-    {
-      path: "cart",
-      element: (
-        <div>
-          <NavBar /> <Cart />
-        </div>
-      ),
+      path: "/",
+      element: <NavbarWrapper />,
+      children: [
+        {
+          path: "/", // yes, again
+          element: <Home />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: "store",
+          element: <Store />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
+        },
+      ],
     },
   ]);
 
   return <RouterProvider router={router} />;
-};
-
-export default Router;
+}; */
