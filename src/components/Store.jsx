@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
+import Product from "./Product";
+let listings = null;
 
 const Store = () => {
   const [products, setProducts] = useState(null);
-  const [toggle, setToggle] = useState(true);
 
   const createListings = () => {
-    if (toggle) {
-      setToggle(false);
-      for (let i = 0; i < products.length; i++) {
-        console.log(products[i]);
-        console.log(i);
-      }
-    } else {
-      console.log("already done");
-    }
+    listings = products.map((product, index) => (
+      <Product
+        key={product.id}
+        url={product.image}
+        price={product.price}
+        class={index}
+      />
+    ));
   };
 
   //initial fetch
@@ -29,7 +29,11 @@ const Store = () => {
     }
   }, [products]);
 
-  return <div>Store</div>;
+  return (
+    <div>
+      <div className="flex justify-center items-center">{listings}</div>
+    </div>
+  );
 };
 
 export default Store;
