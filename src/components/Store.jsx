@@ -1,19 +1,32 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
-let listings = null;
+import ProductModal from "./Modals/ProductModal";
 
 const Store = () => {
   const [products, setProducts] = useState(null);
+  const [listings, setListings] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); //for modal
+
+  const openModal = (product) => {
+    setIsOpen(true);
+    console.log(product.image);
+    console.log(product.description);
+    console.log(product.price);
+  };
 
   const createListings = () => {
-    listings = products.map((product, index) => (
+    const elements = products.map((product, index) => (
       <Product
         key={product.id}
         url={product.image}
         price={product.price}
         class={index}
+        rating={product.rating.rate}
+        ratingCount={product.rating.count}
+        onClick={() => openModal(product)}
       />
     ));
+    setListings(elements);
   };
 
   //initial fetch
@@ -30,8 +43,18 @@ const Store = () => {
   }, [products]);
 
   return (
-    <div>
-      <div className="flex justify-center items-center">{listings}</div>
+    <div className="flex flex-col justify-center items-center">
+      <div className="text-3xl w-3/4 p-4">Shop</div>
+      <div className="w-3/4 px-4 pb-4">
+        <span className="pr-2">Products</span>
+        <span>Filter</span>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-wrap w-3/4 ">{listings}</div>
+      </div>
+      <ProductModal open={isOpen} onClose={() => setIsOpen(false)}>
+        modalzz
+      </ProductModal>
     </div>
   );
 };
