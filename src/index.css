@@ -7,3 +7,11 @@
     @apply hover:bg-gray-500 p-2 px-4 active:text-black active:bg-black flex justify-center items-center;
   }
 }
+
+.product {
+  width: 20rem;
+}
+
+.productModal {
+  width: 27rem;
+}

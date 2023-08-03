@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
-import cart from "../assets/cart-shopping-solid.svg";
+import cartLogo from "../assets/cart-shopping-solid.svg";
+import { useContext, useState, useEffect } from "react";
+import { CartContext } from "./CartContext";
 
 const NavBar = () => {
+  const cart = useContext(CartContext);
+
+  const [cartSize, setCartSize] = useState(0);
+
+  const calculateCartSize = () => {
+    let counter = 0;
+    cart.forEach((value) => {
+      counter += value;
+    });
+    console.log("counter: " + counter);
+    return counter;
+  };
+
+  useEffect(() => {
+    setCartSize(calculateCartSize());
+  }, [cart]);
+
   return (
     <div className="w-full flex justify-between bg-black opacity-80 p-2  text-white">
       <div className="p-2 text-4xl font-bold">Kurita Co.</div>
@@ -16,7 +35,8 @@ const NavBar = () => {
         </Link>
         <div className="border-l-2 border-white h-full"></div>
         <Link to="/cart" className="navIcon">
-          <img src={cart} className="h-5 w-5" alt="cart logo" />
+          <img src={cartLogo} className="h-5 w-5" alt="cart logo" />
+          <span>{cartSize}</span>
         </Link>
         <div className="border-l-2 border-white h-full"></div>
       </div>

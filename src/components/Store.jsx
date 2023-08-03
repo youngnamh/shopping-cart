@@ -6,23 +6,18 @@ const Store = () => {
   const [products, setProducts] = useState(null);
   const [listings, setListings] = useState(null);
   const [isOpen, setIsOpen] = useState(false); //for modal
+  const [whichModal, setWhichModal] = useState(null); //to hold that value of the modal which should be rendered
 
   const openModal = (product) => {
     setIsOpen(true);
-    console.log(product.image);
-    console.log(product.description);
-    console.log(product.price);
+    setWhichModal(product);
   };
 
   const createListings = () => {
-    const elements = products.map((product, index) => (
+    const elements = products.map((product) => (
       <Product
         key={product.id}
-        url={product.image}
-        price={product.price}
-        class={index}
-        rating={product.rating.rate}
-        ratingCount={product.rating.count}
+        product={product}
         onClick={() => openModal(product)}
       />
     ));
@@ -52,7 +47,11 @@ const Store = () => {
       <div className="flex flex-col items-center justify-center">
         <div className="flex flex-wrap w-3/4 ">{listings}</div>
       </div>
-      <ProductModal open={isOpen} onClose={() => setIsOpen(false)}>
+      <ProductModal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        product={whichModal}
+      >
         modalzz
       </ProductModal>
     </div>

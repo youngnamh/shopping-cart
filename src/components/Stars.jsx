@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const Stars = ({ starAverage, ratingCount }) => {
   const [stars, setStars] = useState([]);
@@ -37,11 +38,16 @@ const Stars = ({ starAverage, ratingCount }) => {
   }, [starAverage]);
 
   return (
-    <div>
+    <div className="p-2">
       {stars}
       <span className="mx-2">{ratingCount} Reviews</span>
     </div>
   );
+};
+
+Stars.propTypes = {
+  starAverage: PropTypes.number.isRequired,
+  ratingCount: PropTypes.number.isRequired,
 };
 
 export default Stars;
