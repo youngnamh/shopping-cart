@@ -3,7 +3,7 @@ import Product from "./Product";
 import ProductModal from "./Modals/ProductModal";
 
 const Store = () => {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [listings, setListings] = useState(null);
   const [isOpen, setIsOpen] = useState(false); //for modal
   const [whichModal, setWhichModal] = useState(null); //to hold that value of the modal which should be rendered

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
 import { CartContext } from "./CartContext";
 import CartItem from "./CartItem";
 
@@ -27,7 +27,7 @@ const Cart = () => {
     setCartDOM(elements);
   };
 
-  const totalPrice = () => {
+  const totalPrice = useMemo(() => {
     const iterator = cart.entries();
 
     let nextEntry = iterator.next();
@@ -48,7 +48,7 @@ const Cart = () => {
     }
 
     return counter;
-  };
+  }, [cart]);
 
   const inspect = () => {};
 
