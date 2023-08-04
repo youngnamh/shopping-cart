@@ -27,11 +27,7 @@ const NavBar = () => {
 
   return (
     <div className="w-full flex justify-between bg-black opacity-80 p-2  text-white">
-      <Link
-        to="/"
-        className={activeTab === "Home" ? "navActive" : "navIcon"}
-        onClick={() => handleTabClick("Home")}
-      >
+      <Link to="/" onClick={() => handleTabClick("Home")}>
         <div className="p-2 text-4xl font-bold">Kurita Co.</div>
       </Link>
       <div className="flex justify-between w-1/2">
