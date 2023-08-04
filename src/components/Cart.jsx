@@ -5,12 +5,22 @@ import CartItem from "./CartItem";
 const Cart = () => {
   const { cart } = useContext(CartContext);
   const [cartDOM, setCartDOM] = useState(null);
+  const [total, setTotal] = useState(0);
+  const [shipping, setShipping] = useState(0);
+  const [tax, setTax] = useState(0);
+  const [grandTotal, setGrandTotal] = useState(0);
 
   const updateCart = () => {
     const elements = Array.from(cart.entries()).map(([key, value]) => {
+      const randomNumber = Math.random() * (1000000 - 1) + 1;
+
       return (
         <div>
-          <CartItem product={key} quantity={value} />
+          <CartItem
+            key={key.id * randomNumber}
+            product={key}
+            quantity={value}
+          />
         </div>
       );
     });
@@ -21,19 +31,35 @@ const Cart = () => {
     const iterator = cart.entries();
 
     let nextEntry = iterator.next();
+    let counter = 0;
+
     while (!nextEntry.done) {
-      console.log(nextEntry.value);
+      counter += nextEntry.value[0].price * nextEntry.value[1];
       nextEntry = iterator.next();
     }
+    if (counter === 0) {
+      setTax(0);
+      setShipping(0);
+      setGrandTotal(0);
+    } else {
+      setShipping(14.99);
+      setTax((counter * 0.12).toFixed(2));
+      setGrandTotal((counter + counter * 0.12 + 14.99).toFixed(2));
+    }
+
+    return counter;
   };
+
+  const inspect = () => {};
 
   useEffect(() => {
     updateCart();
+    setTotal(totalPrice);
   }, [cart]);
 
   return (
     <div className="flex">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex w-4/6 flex-col  items-center">
         <div className="text-3xl w-4/6 p-4">Cart</div>
         <div className="flex w-4/6 p-4 justify-between">
           <div className="w-1/2">Product</div>
@@ -50,22 +76,27 @@ const Cart = () => {
         <div className="text-lg mt-6">
           <div className="summary">
             <div>Subtotal</div>
-            <div>Subtotal</div>
+            <div>${total}</div>
           </div>
           <div className="summary">
             <div>Shipping</div>
-            <div>Shipping</div>
+            <div>${shipping}</div>
           </div>
           <div className="summary">
             <div>Tax</div>
-            <div>Tax</div>
+            <div>${tax}</div>
           </div>
           <div className="summary">
             <div>Total</div>
-            <div>Total</div>
+            <div>${grandTotal}</div>
           </div>
         </div>
-        <button className="bg-yellow-300 m-8 p-2">Checkout</button>
+        <button
+          onClick={() => inspect()}
+          className="bg-yellow-300 m-8 p-2 hover:scale-110 hover:text-white active:text-black"
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
