@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import cartLogo from "../assets/cart-shopping-solid.svg";
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
+import ShoppingCounter from "./ShoppingCounter";
 
 const NavBar = () => {
-  const cart = useContext(CartContext);
-
+  const { cart } = useContext(CartContext);
   const [cartSize, setCartSize] = useState(0);
 
   const calculateCartSize = () => {
@@ -13,7 +13,6 @@ const NavBar = () => {
     cart.forEach((value) => {
       counter += value;
     });
-    console.log("counter: " + counter);
     return counter;
   };
 
@@ -36,7 +35,9 @@ const NavBar = () => {
         <div className="border-l-2 border-white h-full"></div>
         <Link to="/cart" className="navIcon">
           <img src={cartLogo} className="h-5 w-5" alt="cart logo" />
-          <span>{cartSize}</span>
+          <span>
+            <ShoppingCounter amount={cartSize} />
+          </span>
         </Link>
         <div className="border-l-2 border-white h-full"></div>
       </div>

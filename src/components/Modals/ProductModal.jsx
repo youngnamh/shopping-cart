@@ -24,11 +24,11 @@ const OVERLAY_STYLES = {
 };
 
 export default function ProductModal({ open, onClose, product }) {
-  const cart = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   if (!open) return null;
 
-  const addToCart = () => {
+  /*const addToCart = () => {
     if (cart.has(product)) {
       cart.set(product, cart.get(product) + 1);
     } else {
@@ -42,14 +42,14 @@ export default function ProductModal({ open, onClose, product }) {
       console.log(nextEntry.value);
       nextEntry = iterator1.next();
     }
-  };
+  };*/
 
   return ReactDOM.createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}></div>
       <div style={MODAL_STYLES} className="productModal rounded-lg">
         <button
-          className="bg-red-500  m-2 p-4 w-8 h-8 flex items-center justify-center hover:scale-110 hover:text-white"
+          className="bg-red-500  m-2 p-4 w-8 h-8 rounded-sm shadow-md flex items-center justify-center hover:scale-110 hover:text-white"
           onClick={onClose}
         >
           ×
@@ -57,7 +57,7 @@ export default function ProductModal({ open, onClose, product }) {
         <div className="p-10 flex flex-col justify-center items-center">
           <ProductUnstyled product={product} />
           <button
-            onClick={addToCart}
+            onClick={() => addToCart(product)}
             className="bg-yellow-300 p-2 hover:scale-110 active:scale-100"
           >
             Add to Cart
