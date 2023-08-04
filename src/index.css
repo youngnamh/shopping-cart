@@ -7,6 +7,10 @@
     @apply hover:bg-gray-500 p-2 px-4 active:text-black active:bg-black flex justify-center items-center;
   }
 
+  .navActive {
+    @apply border-b-4 border-white;
+  }
+
   .summary {
     @apply flex justify-between mx-12;
   }

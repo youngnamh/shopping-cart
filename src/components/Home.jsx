@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="home text-white flex flex-col items-center gap-10">
-      <div className="text-center text-3xl pt-10">Welcome to Kurita Co.</div>
+      <div className="text-center text-4xl pt-20">Welcome to Kurita Co.</div>
       <div className="text-center whitespace-normal w-1/2">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum dolorem
         exercitationem, laborum pariatur doloremque architecto numquam quaerat
