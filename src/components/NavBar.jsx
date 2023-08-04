@@ -22,7 +22,9 @@ const NavBar = () => {
 
   return (
     <div className="w-full flex justify-between bg-black opacity-80 p-2  text-white">
-      <div className="p-2 text-4xl font-bold">Kurita Co.</div>
+      <Link to="/">
+        <div className="p-2 text-4xl font-bold">Kurita Co.</div>
+      </Link>
       <div className="flex justify-between w-1/2">
         <div className="border-l-2 border-white h-full"></div>
         <Link to="/" className="navIcon">

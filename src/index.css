@@ -19,3 +19,10 @@
 .productModal {
   width: 27rem;
 }
+
+.home {
+  height: 90dvh;
+  background-image: url("./assets/images/background.jpg");
+  background-size: cover;
+  background-position: right center;
+}
