@@ -58,7 +58,7 @@ const Cart = () => {
   }, [cart]);
 
   return (
-    <div className="flex">
+    <div className="fillScreen flex">
       <div className="flex w-4/6 flex-col  items-center">
         <div className="text-3xl w-4/6 p-4">Cart</div>
         <div className="flex w-4/6 p-4 justify-between">

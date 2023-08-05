@@ -30,3 +30,7 @@
   background-size: cover;
   background-position: right center;
 }
+
+.fillScreen {
+  min-height: 90dvh;
+}

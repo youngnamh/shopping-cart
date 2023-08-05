@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Store from "./Store";
 import Home from "./Home";
 import Cart from "./Cart";
+import Footer from "./Footer";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -40,6 +41,7 @@ const NavbarWrapper = () => {
     <div>
       <NavBar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
