@@ -38,7 +38,7 @@ const Store = () => {
   }, [products]);
 
   return (
-    <div className="fillScreen flex flex-col justify-center items-center">
+    <div className="fillScreen flex flex-col items-center">
       <div className="text-3xl w-3/4 p-4">Shop</div>
       <div className="w-3/4 px-4 pb-4">
         <span className="pr-2">Products</span>
