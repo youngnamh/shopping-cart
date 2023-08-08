@@ -1,10 +1,13 @@
 import "./index.css";
 import Router from "./components/Router";
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   return (
     <div>
-      <Router />
+      <CartProvider>
+        <Router />
+      </CartProvider>
     </div>
   );
 }
