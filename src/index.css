@@ -34,3 +34,8 @@
 .fillScreen {
   min-height: 90dvh;
 }
+
+.footerElement:hover {
+  transform: scale(1.05);
+  color: yellow;
+}
