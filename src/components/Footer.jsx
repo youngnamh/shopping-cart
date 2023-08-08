@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="flex justify-center items-center">
             <img
               src={envelopeSolid}
-              className="h-20 w-20 m-2 hover:scale-110 "
+              className="h-20 w-20 m-2 hover:scale-105"
               alt="letter"
             />
           </div>
@@ -40,6 +40,7 @@ export default function Footer() {
             href="https://github.com/youngnamh"
             target="_blank"
             rel="noreferrer"
+            className="hover:text-yellow-200"
           >
             {" "}
             youngnamh
