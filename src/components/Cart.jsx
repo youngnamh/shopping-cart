@@ -69,9 +69,9 @@ const Cart = () => {
             <div>Total</div>
           </div>
         </div>
-        <div className="w-4/6"> {cartDOM}</div>
+        <div className="w-4/6 m-2"> {cartDOM}</div>
       </div>
-      <div className="w-2/6 h-80 bg-blue-100 shadow-md mt-28 mr-10 p-6 text-center text-2xl">
+      <div className="w-2/6 h-80 bg-blue-100 shadow-md mt-28 ml-2 mr-10 p-6 text-center text-2xl">
         Order Summary
         <div className="text-lg mt-6">
           <div className="summary">
