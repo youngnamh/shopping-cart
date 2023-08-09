@@ -25,14 +25,15 @@
 }
 
 .home {
-  height: 85dvh;
+  height: 85vh;
   background-image: url("./assets/images/background.jpg");
   background-size: cover;
   background-position: right center;
 }
 
 .fillScreen {
-  min-height: 90dvh;
+  min-height: 90vh;
+  min-width: 60rem;
 }
 
 .footerElement:hover {

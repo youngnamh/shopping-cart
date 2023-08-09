@@ -11,8 +11,8 @@ const Product = ({ product, onClick }) => {
     >
       <div
         style={{
-          width: "35vh",
-          height: "35vh",
+          width: "15rem",
+          height: "15rem",
         }}
       >
         <img src={product.image} className="w-full h-full" />
