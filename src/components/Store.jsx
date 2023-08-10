@@ -51,9 +51,7 @@ const Store = () => {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         product={whichModal}
-      >
-        modalzz
-      </ProductModal>
+      />
     </div>
   );
 };
