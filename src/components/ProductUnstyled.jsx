@@ -8,8 +8,8 @@ const ProductUnstyled = ({ product }) => {
     <div className="product p-4 m-2  box-border min-w-fit">
       <div
         style={{
-          width: "35vh",
-          height: "35vh",
+          width: "15rem",
+          height: "15rem",
         }}
       >
         <img src={product.image} className="w-full h-full" />
