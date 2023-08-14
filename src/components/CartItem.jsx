@@ -17,8 +17,8 @@ export default function CartItem({ product, quantity }) {
         <div className="flex w-1/2 gap-10">
           <div
             style={{
-              width: "15vh",
-              height: "15vh",
+              width: "11rem",
+              height: "11rem",
             }}
           >
             <img src={product.image} className="w-full h-full" />
